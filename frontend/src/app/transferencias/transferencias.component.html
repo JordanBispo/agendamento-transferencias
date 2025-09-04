@@ -1,0 +1,16 @@
+<form (ngSubmit)="criar()">
+  <input name="origem" [(ngModel)]="form.contaOrigem" placeholder="Conta Origem" required />
+  <input name="destino" [(ngModel)]="form.contaDestino" placeholder="Conta Destino" required />
+  <input name="valor" type="number" [(ngModel)]="form.valor" placeholder="Valor" required />
+  <input name="data" type="date" [(ngModel)]="form.dataTransferencia" required />
+  <button type="submit">Agendar</button>
+</form>
+
+<ul>
+  <li *ngFor="let t of lista">
+    {{ t.contaOrigem }} → {{ t.contaDestino }} |
+    Valor: {{ t.valor | currency:'BRL' }} |
+    Taxa: {{ t.taxa | currency:'BRL' }} |
+    Data Transf.: {{ t.dataTransferencia }}
+  </li>
+</ul>
